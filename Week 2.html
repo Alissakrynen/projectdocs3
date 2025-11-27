@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tailwind Fonts Overview</title>
+  <link href="./dist/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/flexboxes.css">
+  <link rel="stylesheet" href="assets/nav.css">
+  <link rel="stylesheet" href="assets/typography.css">
+</head>
+<body class="week2">
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="home-link">Home</a>
+            <div class="title site-name">Krynen Alissa</div>
+        </div>
+        <div>
+            <ul class="vertical-buttons">
+                <li><a href="Week2.html">Lesweek 2</a></li>
+
+            </ul>
+        </div>
+                
+
+            <h2>Low-fi prototypes</h2>
+            <p>
+                Ik heb mijn eerste schetsen gemaakt voor de treinschermen.
+            </p>
+            <div class="two-columns">
+                <div class="column">
+                    <p>
+                        Ik heb nagedacht over de indeling van de schermen en hoe de informatie het beste gepresenteerd kan worden.
+                    </p>
+                </div>
+                <div class="column">
+                    <div class="photo-grid">
+                        <img src="assets/foto_week2/IMG_4687.jpeg" alt="foto 1" class="grid-photo">
+                        <img src="assets/foto_week2/IMG_4688.jpeg" alt="foto 2" class="grid-photo">
+                        <img src="assets/foto_week2/IMG_4689.jpeg" alt="foto 3" class="grid-photo">
+                        <img src="assets/foto_week2/IMG_4690.jpeg" alt="foto 4" class="grid-photo">
+                    </div>
+                </div>
+            </div>
+        </page>
+    </div>
+</div>
+
+    <!-- Simple lightbox modal -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button class="lightbox-close" aria-label="Close">×</button>
+        <img class="lightbox-image" src="" alt="">
+    </div>
+
+    <script>
+        // Lightbox functionality
+        (function(){
+            const images = document.querySelectorAll('.grid-photo');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = lightbox.querySelector('.lightbox-image');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImage.src = img.src;
+                    lightboxImage.alt = img.alt || '';
+                    lightbox.style.display = 'flex';
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeLightbox(){
+                lightbox.style.display = 'none';
+                lightbox.setAttribute('aria-hidden', 'true');
+                lightboxImage.src = '';
+                document.body.style.overflow = '';
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if(e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', (e)=>{
+                if(e.key === 'Escape') closeLightbox();
+            });
+        })();
+    </script>
+</body>
+</html>

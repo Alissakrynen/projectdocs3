@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tailwind Fonts Overview</title>
+  <link href="./dist/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/flexboxes.css">
+  <link rel="stylesheet" href="assets/nav.css">
+  <link rel="stylesheet" href="assets/typography.css">
+</head>
+<body class="week10">
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="home-link">Home</a>
+            <div class="title site-name">Krynen Alissa</div>
+        </div>
+        <div>
+            <ul class="vertical-buttons">
+                <li><a href="Week 10.html">Lesweek 10</a></li>
+
+            </ul>
+        </div>
+            <h2>Figma Flow</h2>
+            <p>
+               we kregen meer info over figma. we moeten de treinschermen gaan omzetten tot een gsm prototype. Met extra info over do's en dont's voor een goed prototype van een gsm scherm.
+            </p>
+            <div class="two-columns">
+                <div class="column">
+                    <p>
+                        daarnaast kregen we tijd om onze html af te maken omdat er om 17U een deadline was om alles in te leveren.
+                    </p>
+                </div>
+ <div class="column">
+                </div>
+                <div class="column">
+                    <div class="photo-grid">
+                        <img src="assets/Foto_week10/Perron.png" alt="foto 1" class="grid-photo">
+                        <img src="assets/Foto_week10/Station.png" alt="foto 2" class="grid-photo">
+                        <img src="assets/Foto_week10/Wagon.png" alt="foto 3" class="grid-photo">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple lightbox modal (Week 3) -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button class="lightbox-close" aria-label="Close">×</button>
+        <img class="lightbox-image" src="" alt="">
+    </div>
+
+    <script>
+        // Lightbox functionality for Week 3
+        (function(){
+            const images = document.querySelectorAll('.grid-photo');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = lightbox.querySelector('.lightbox-image');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImage.src = img.src;
+                    lightboxImage.alt = img.alt || '';
+                    lightbox.classList.add('active');
+                    lightbox.style.display = 'flex';
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeLightbox(){
+                lightbox.classList.remove('active');
+                lightbox.style.display = 'none';
+                lightbox.setAttribute('aria-hidden', 'true');
+                lightboxImage.src = '';
+                document.body.style.overflow = '';
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if(e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', (e)=>{
+                if(e.key === 'Escape') closeLightbox();
+            });
+        })();
+    </script>
+
+</body>
+</html>

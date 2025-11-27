@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tailwind Fonts Overview</title>
+  <link href="./dist/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/flexboxes.css">
+  <link rel="stylesheet" href="assets/nav.css">
+  <link rel="stylesheet" href="assets/typography.css">
+</head>
+<body class="week4">
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="home-link">Home</a>
+            <div class="title site-name">Krynen Alissa</div>
+        </div>
+        <div>
+            <ul class="vertical-buttons">
+                <li><a href="Week4.html">Lesweek 4</a></li>
+            </ul>
+        </div>
+                
+
+            <h2>Typografie, kleur en ruimte in UX Design</h2>
+            <p>
+             We kregen feedback over onze Midi-prototypes. Zo konden we verder aan de slag om alles te verbeteren. 
+            </p>
+            <!-- Flex container with 2 columns -->
+            <div class="two-columns">
+                <div class="column">
+                    <p>
+                        Deze feedback heb ik verwerkt in mijn ontwerpen en zo kreeg ik betere resultaten. 
+                    </p>
+                                    </div>
+         <div class="column">
+         </div>
+        <div class="column">
+                    <div class="photo-grid">
+                        <img src="assets/foto_week4/2526_PRTT_KrynenAlissa_Oefening 2 Midi-prototypes_Overzichtscherm.png" alt="foto 1" class="grid-photo">
+                        <img src="assets/foto_week4/2526_PRTT_KrynenAlissa_Oefening 2 Midi-prototypes_Perronscherm.png" alt="foto 2" class="grid-photo">
+                        <img src="assets/foto_week4/2526_PRTT_KrynenAlissa_Oefening 2 Midi-prototypes_Wagonscherm.png" alt="foto 3" class="grid-photo">
+                    </div>
+                </div>
+                <div class="column">
+                </div>
+            </div>
+        </page>
+    </div>
+
+    <!-- Simple lightbox modal (Week 4) -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button class="lightbox-close" aria-label="Close">×</button>
+        <img class="lightbox-image" src="" alt="">
+    </div>
+
+    <script>
+        // Lightbox functionality for Week 4
+        (function(){
+            const images = document.querySelectorAll('.grid-photo');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = lightbox.querySelector('.lightbox-image');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImage.src = img.src;
+                    lightboxImage.alt = img.alt || '';
+                    lightbox.classList.add('active');
+                    lightbox.style.display = 'flex';
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeLightbox(){
+                lightbox.classList.remove('active');
+                lightbox.style.display = 'none';
+                lightbox.setAttribute('aria-hidden', 'true');
+                lightboxImage.src = '';
+                document.body.style.overflow = '';
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if(e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', (e)=>{
+                if(e.key === 'Escape') closeLightbox();
+            });
+        })();
+    </script>
+
+</body>
+</html>
